@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+tomcat-users.xml                                        
+<role rolename="admin"/>
+<role rolename="user"/>
+
+<user username="admin" password="a" roles="admin"/>
+<user username="user" password="u" roles="user"/>
+  
+
+server.xml
+<Realm className="org.apache.catalina.realm.JDBCRealm"
+                        driverName="org.gjt.mm.mysql.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/security"
+                        connectionName="root" 
+                        connectionPassword="root"
+                        userTable="users" 
+                        userNameCol="user_name"
+                        userCredCol="user_pass"
+                        userRoleTable="user_role"
+                        roleNameCol="role_name" />
